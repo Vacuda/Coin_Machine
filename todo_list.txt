@@ -40,7 +40,7 @@ Coin
 Transaction
     type:string
     time_display:string
-    coin_type: 
+    coin_name: 
     api_user:string
 
 
@@ -51,7 +51,9 @@ Transaction
             //handle overdraw errors
 
 Admin
-    emails:[]
+    first_name:string
+    last_name:string
+    email:string
 
 Alerting
 

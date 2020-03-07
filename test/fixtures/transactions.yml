@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  time_display: MyString
+  coin_name: MyString
+  api_user: MyString
+
+two:
+  type: 
+  time_display: MyString
+  coin_name: MyString
+  api_user: MyString
