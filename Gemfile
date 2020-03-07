@@ -7,8 +7,11 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
-
-gem 'sqlite3'
+gem 'hirb'
+gem 'sqlite3', '~> 1.3.13'
+gem 'capybara'
+gem 'rspec'
+gem 'rails-footnotes', '>= 4.0.0', '<5'
 
 
 # To use ActiveModel has_secure_password
