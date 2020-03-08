@@ -5,15 +5,21 @@ Rails.application.routes.draw do
 
 ##COINS
 	
-	get 'coins/'           		=> 'coins#all'
-	get 'coins/show/:id' 		=> 'coins#show_one'
+	get 'coins/'           			=> 'coins#all'
+	get 'coins/show/:id' 			=> 'coins#show_one'
 
-	post 'coins/create' 		=> 'coins#create'
-	patch 'coins/update/:id' 	=> 'coins#update'
-	get 'coins/destroy/:id' 	=> 'coins#destroy'
+	post 'coins/create' 			=> 'coins#create'
+	patch 'coins/update/:id' 		=> 'coins#update'
+	get 'coins/destroy/:id' 		=> 'coins#destroy'
 
-	get 'coins/total'			=> 'coins#total'
+	get 'coins/total'				=> 'coins#total'
 
+
+##TRANSACTIONS
+
+	get 'transactions/all'			=> 'transactions#all'
+	get 'transactions/all_for_api'	=> 'transactions#all_for_api'
+	get 'transactions/create'		=> 'transactions#create'
 
 
 ##ADMIN
@@ -36,7 +42,7 @@ Rails.application.routes.draw do
 
 
 
-
+##CATCH ALL
 	match '*path'				=> 'coins#index', via: :all
 
 

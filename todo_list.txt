@@ -1,53 +1,18 @@
 
 
 
-json format
+
 track api keys
 
 
-
-
-///////////////////////MODELS
-
 APIKEY
-
-
-
-
-Coin
-    name:string
-    unit_value: decimal
-    count:integer
-    total_value: decimal
-
-
-            //Create Coin
-            //Update
-            //Delete
-
-            //View All
-            //View Single
 
             //Get Total Value   - at a given time!!
 
 
 
-
-
-
-
-
 Transaction
-    type:string
-    time_display:string
-    coin_name: 
-    api_user:string
 
-
-            //Create a Transaction, withdrawal or deposit
-            //List of all Transactions
-            //List of all Transactions - specific to API User
-            //decrease coin count by one
             //handle overdraw errors
 
 Admin

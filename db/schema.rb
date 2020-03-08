@@ -25,18 +25,16 @@ ActiveRecord::Schema.define(version: 20200307212436) do
     t.string   "name"
     t.decimal  "unit_value"
     t.integer  "count"
-    t.decimal  "total_value"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "type"
-    t.string   "time_display"
+    t.string   "trans_type"
     t.string   "coin_name"
     t.string   "api_user"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -4,7 +4,6 @@ class CreateCoins < ActiveRecord::Migration
       t.string :name
       t.decimal :unit_value
       t.integer :count
-      t.decimal :total_value
 
       t.timestamps null: false
     end
