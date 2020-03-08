@@ -3,8 +3,20 @@ Rails.application.routes.draw do
 
 
 
+##COINS
+	
+	get 'coins/'           		=> 'coins#all'
+	get 'coins/show/:id' 		=> 'coins#show_one'
 
-    get 'products/:id' => 'catalog#view'
+	post 'coins/create' 		=> 'coins#create'
+	patch 'coins/update/:id' 	=> 'coins#update'
+	get 'coins/destroy/:id' 	=> 'coins#destroy'
+
+	get 'coins/total'			=> 'coins#total'
+
+
+
+##ADMIN
 
 
 
@@ -12,6 +24,20 @@ Rails.application.routes.draw do
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+	match '*path'				=> 'coins#index', via: :all
 
 
 

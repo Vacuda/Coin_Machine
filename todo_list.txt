@@ -16,7 +16,7 @@ APIKEY
 
 Coin
     name:string
-    value_unit: decimal
+    unit_value: decimal
     count:integer
     total_value: decimal
 

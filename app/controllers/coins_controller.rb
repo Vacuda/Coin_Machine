@@ -8,43 +8,57 @@ class CoinsController < ApplicationController
 
 
     def all
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        puts "all"
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        render json: {route: "all"}
+        render json: Coin.all()
     end
+
 
     def show_one
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        puts "show_one"
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        render json: {route: "show_one"}
+        ##find coin
+        this_coin = Coin.find_by(id: params[:id])
+            
+        render json: this_coin
     end
+
 
     def create
-        
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        puts "create"
-        puts "~~~~~~~~~~~~~~~~~~~~"
 
-        Coin.create( name: params[:name], unit_value: params[:unit_value])
+        # if errors?
+        #     flash[:error] = "You have errors"
 
-        render json: Coin.last()
+        #     render json: flash
+        # else
+            ##create coin
+            Coin.create( name: params[:name], unit_value: params[:unit_value])
+
+            render json: Coin.last()
+        end
     end
+
 
     def update
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        puts "update"
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        render json: {route: "update"}
+        ##find coin
+        this_coin = Coin.find_by(id: params[:id])
+
+        ##update coin
+        this_coin.update(
+            name: params[:name], 
+            unit_value: params[:unit_value],
+            count: params[:count]
+            )
+
+        render json: this_coin
     end
 
+
     def destroy
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        puts "destroy"
-        puts "~~~~~~~~~~~~~~~~~~~~"
-        render json: {route: "destroy"}
+        ##delete coin
+        deleted_coin = Coin.find_by(id: params[:id]).destroy
+        ##build object
+        context = {message: "Coin deleted properly", deleted_coin: deleted_coin}
+        
+        render json: context
     end
+
 
     def total
         puts "~~~~~~~~~~~~~~~~~~~~"

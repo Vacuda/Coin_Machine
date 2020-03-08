@@ -13,7 +13,6 @@ gem 'capybara'
 gem 'rspec'
 gem 'rails-footnotes', '>= 4.0.0', '<5'
 
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
