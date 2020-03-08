@@ -51,14 +51,19 @@ class CoinsController < ApplicationController
             count: params[:count]
             )
 
-        render json: this_coin
+        ##build response
+        context = {
+            message: "Coin updated properly", updated_coin: this_coin
+        }
+
+        render json: context
     end
 
 
     def destroy
         ##delete coin
         deleted_coin = Coin.find_by(id: params[:id]).destroy
-        
+
         ##build response
         context = {
             message: "Coin deleted properly", deleted_coin: deleted_coin
@@ -88,6 +93,9 @@ class CoinsController < ApplicationController
 
         render json: context
     end
+
+    
+
 
 
 

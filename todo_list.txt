@@ -22,9 +22,6 @@ Admin
 
 Alerting
 
-            //add email
-            //remove email
-            //list email
             //check count after Transaction
             //send email to all the names in Admin.emails.  Kind of Coin, the count, and current value of all coins
             //send asynchronous

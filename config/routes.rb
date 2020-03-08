@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 	
 	get 'coins/'           			=> 'coins#all'
 	get 'coins/show/:id' 			=> 'coins#show_one'
-
 	post 'coins/create' 			=> 'coins#create'
 	patch 'coins/update/:id' 		=> 'coins#update'
 	get 'coins/destroy/:id' 		=> 'coins#destroy'
@@ -17,14 +16,20 @@ Rails.application.routes.draw do
 
 ##TRANSACTIONS
 
-	get 'transactions/all'			=> 'transactions#all'
+	get 'transactions/'				=> 'transactions#all'
+	post 'transactions/create'		=> 'transactions#create'
+
 	get 'transactions/all_for_api'	=> 'transactions#all_for_api'
-	get 'transactions/create'		=> 'transactions#create'
 
 
 ##ADMIN
 
+	get 'admin/'					=> 'admin#all'
+	post 'admin/create'				=> 'admin#create'
+	patch 'admin/update/:id'		=> 'admin#update'
+	get 'admin/destroy/:id'			=> 'admin#destroy'
 
+	get 'admin/all_emails'			=> 'admin#all_emails'
 
 
 

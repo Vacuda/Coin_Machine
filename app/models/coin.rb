@@ -10,6 +10,15 @@ class Coin < ActiveRecord::Base
         return output
     end
 
+
+    def self.coin_level_check
+        puts "Coin Level Check"
+    end
+
+
+
+
+
 end
 
 

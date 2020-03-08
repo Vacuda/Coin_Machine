@@ -1,3 +1,5 @@
+require 'coins_controller'
+
 class TransactionsController < ApplicationController
 
 
@@ -36,6 +38,9 @@ class TransactionsController < ApplicationController
             this_coin.count = this_coin.count + 1
             this_coin.save()
         end
+
+        #check coin levels
+        Coin.coin_level_check()
 
         ##build response
         context = {
