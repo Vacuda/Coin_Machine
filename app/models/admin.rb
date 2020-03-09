@@ -5,9 +5,26 @@ class Admin < ActiveRecord::Base
 
     before_save :downcase_email
 
+    def self.all_emails
+        #get all admins
+        all_admins = Admin.all()
+
+        #get all emails
+        admin_emails = []
+        all_admins.each do |email|
+            admin_emails.push(email.email)
+        end
+    
+        return admin_emails
+    end
+
+
     private
         def downcase_email
             self.email.downcase!
         end
+
+
+
 
 end

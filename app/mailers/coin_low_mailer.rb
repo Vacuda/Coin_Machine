@@ -1,0 +1,2 @@
+class CoinLowMailer < ApplicationMailer
+end

@@ -17,6 +17,28 @@ class TransactionsController < ApplicationController
 
 
     def create
+        #check if transaction can occur
+        if params[:trans_type] == "withdrawal"
+            #find coin
+            possible_withdrawn_coin = Coin.find_by(
+                name: params[:coin_name]
+            )
+
+            ##if coin isn't there to withdraw, return message without withdrawing
+            if possible_withdrawn_coin.count <= 0
+                ##build response
+                context = {
+                    message: "Unable to withdraw coin.  Insufficient funds",
+                    coin_name: possible_withdrawn_coin.name
+                }
+
+                render json: context and return
+
+
+            end
+        end
+        
+        
         ##create new transaction
         new_transaction = Transaction.create(
             trans_type:     params[:trans_type],
@@ -33,14 +55,15 @@ class TransactionsController < ApplicationController
         if new_transaction.trans_type == "withdrawal"
             this_coin.count = this_coin.count - 1
             this_coin.save()
+
+            #check coin levels after a withdrawal
+            Coin.coin_level_check()
+
         end
         if new_transaction.trans_type == "deposit"
             this_coin.count = this_coin.count + 1
             this_coin.save()
         end
-
-        #check coin levels
-        Coin.coin_level_check()
 
         ##build response
         context = {

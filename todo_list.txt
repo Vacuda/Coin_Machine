@@ -15,13 +15,19 @@ Transaction
 
             //handle overdraw errors
 
-Admin
-    first_name:string
-    last_name:string
-    email:string
 
 Alerting
 
             //check count after Transaction
             //send email to all the names in Admin.emails.  Kind of Coin, the count, and current value of all coins
             //send asynchronous
+
+
+
+
+
+//deploy
+//send email to admins
+//handle overdraft errors
+//track api keys
+

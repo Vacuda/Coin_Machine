@@ -57,16 +57,15 @@ class AdminController < ApplicationController
 
 
     def all_emails
-        #get all admins
-        all_admins = Admin.all()
+        ##call class method
+        email_array = Admin.all_emails()
 
-        #get all emails
-        admin_emails = []
-        all_admins.each do |email|
-            admin_emails.push(email.email)
-        end
+        ##build response
+        context = {
+            admin_emails: email_array
+        }
 
-        render json: {admin_emails: admin_emails}
+        render json: context
     end
 
 
