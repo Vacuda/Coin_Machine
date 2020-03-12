@@ -75,22 +75,30 @@ class TransactionsController < ApplicationController
             this_coin.save()
 
             #check coin levels after a withdrawal
-            Coin.coin_level_check()
+            coin_level_message = Coin.coin_level_check()
 
+            ##build response
+            context = {
+                message: "Withdrawal created successfully",
+                new_transaction: new_transaction,
+                coin_level_check: coin_level_message
+            }
+
+            render json: context
         end
+
         if new_transaction.trans_type == "deposit"
             this_coin.count = this_coin.count + 1
             this_coin.save()
+
+            ##build response
+            context = {
+                message: "Deposit created successfully",
+                new_transaction: new_transaction,
+            }
+
+            render json: context and return
         end
-
-        ##build response
-        context = {
-            message: "Transaction created successfully",
-            new_transaction: new_transaction
-        }
-
-        render json: context
-
 
     end
 

@@ -6,12 +6,12 @@ class ApplicationMailer < ActionMailer::Base
 
   def coin_low
 
-    puts "Send email message to"
+    puts "Into Application Mailer"
     
     # def send_simple_message
     #   RestClient.post "https://api:###########"\
     #   "@api.mailgun.net/v3/##########.mailgun.org/messages",
-    #   :from => "Excited User <mailgun@sandbox813b7193c5804af285d26ed7f7390962>",
+    #   :from => "Excited User <mailgun@##############>",
     #   :to => "adamjsikora@gmail.com",
     #   :subject => "Hello",
     #   :text => "Testing some Mailgun awesomness!"
