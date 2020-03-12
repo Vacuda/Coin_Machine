@@ -12,11 +12,23 @@ class CoinsController < ApplicationController
 
 
     def all
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         render json: Coin.all()
     end
 
 
     def show_one
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##find coin
         this_coin = Coin.find_by(id: params[:id])
             
@@ -25,6 +37,12 @@ class CoinsController < ApplicationController
 
 
     def create
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##number format to two decimals
         value = number_with_precision(params[:unit_value], precision: 2)
 
@@ -41,6 +59,12 @@ class CoinsController < ApplicationController
 
 
     def update
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##find coin
         this_coin = Coin.find_by(id: params[:id])
 
@@ -61,6 +85,12 @@ class CoinsController < ApplicationController
 
 
     def destroy
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##delete coin
         deleted_coin = Coin.find_by(id: params[:id]).destroy
 
@@ -74,6 +104,12 @@ class CoinsController < ApplicationController
 
 
     def total
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##get all coins in system
         all_coins = Coin.all()
 

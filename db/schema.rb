@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200307212436) do
+ActiveRecord::Schema.define(version: 20200312141404) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "first_name"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 20200307212436) do
     t.string   "name"
     t.decimal  "unit_value"
     t.integer  "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "keys", force: :cascade do |t|
+    t.string   "api_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

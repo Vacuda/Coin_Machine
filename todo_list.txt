@@ -2,15 +2,6 @@
 
 
 
-track api keys
-
-
-APIKEY
-
-            //Get Total Value   - at a given time!!
-
-
-
 Transaction
 
             //handle overdraw errors

@@ -8,14 +8,24 @@ class ApplicationMailer < ActionMailer::Base
 
     puts "into email method"
     
-
-    mail(
-      from: "low_coin@example.com",
-      subject: "Low Coin Warning",
-      to: "adamjsikora@gmail.com"
-    ) do |format|
-      format.text {render plain: 'test test test'}
+    def send_simple_message
+      RestClient.post "https://api:2ccf2ed59be9cc57e20fd12f1e0c8cdf-ee13fadb-22d9b76b"\
+      "@api.mailgun.net/v3/sandbox813b7193c5804af285d26ed7f7390962.mailgun.org/messages",
+      :from => "Excited User <mailgun@sandbox813b7193c5804af285d26ed7f7390962>",
+      :to => "adamjsikora@gmail.com",
+      :subject => "Hello",
+      :text => "Testing some Mailgun awesomness!"
     end
+
+
+
+    # mail(
+    #   from: "low_coin@example.com",
+    #   subject: "Low Coin Warning",
+    #   to: "adamjsikora@gmail.com"
+    # ) do |format|
+    #   format.text {render plain: 'test test test'}
+    # end
   end
 
 

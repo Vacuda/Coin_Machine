@@ -4,11 +4,23 @@ class TransactionsController < ApplicationController
 
 
     def all
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         render json: Transaction.all()
     end
 
 
     def all_for_api
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##get api key
         api_key = params[:api_user]
 
@@ -17,6 +29,12 @@ class TransactionsController < ApplicationController
 
 
     def create
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         #check if transaction can occur
         if params[:trans_type] == "withdrawal"
             #find coin

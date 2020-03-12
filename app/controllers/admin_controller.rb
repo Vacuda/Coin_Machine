@@ -1,11 +1,23 @@
 class AdminController < ApplicationController
 
     def all
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         render json: Admin.all()
     end
 
 
     def create
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##create Admin
         Admin.create(
             first_name: params[:first_name],
@@ -24,6 +36,12 @@ class AdminController < ApplicationController
 
 
     def update
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##find admin
         this_admin = Admin.find_by(id: params[:id])
 
@@ -44,6 +62,12 @@ class AdminController < ApplicationController
 
 
     def destroy
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##delete admin
         deleted_admin = Admin.find_by(id: params[:id]).destroy
         
@@ -57,6 +81,12 @@ class AdminController < ApplicationController
 
 
     def all_emails
+        ##-----------------------api check---------------------------
+        if Key.where(api_key: params[:api_key]).none?
+            render json: {message: "api_key is not valid"} and return
+        end
+        ##-----------------------------------------------------------
+
         ##call class method
         email_array = Admin.all_emails()
 

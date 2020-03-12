@@ -22,14 +22,21 @@ Rails.application.routes.draw do
 	get 'transactions/all_for_api'	=> 'transactions#all_for_api'
 
 
-##ADMIN
+##ADMIN  --(should be plural! Oops)
 
 	get 'admin/'					=> 'admin#all'
 	post 'admin/create'				=> 'admin#create'
 	patch 'admin/update/:id'		=> 'admin#update'
 	get 'admin/destroy/:id'			=> 'admin#destroy'
 
-	get 'admin/all_emails'			=> 'admin#all_emails'
+    get 'admin/all_emails'			=> 'admin#all_emails'
+    
+
+##KEYS
+
+    get 'keys/'					    => 'keys#all'
+    get 'keys/create'				=> 'keys#create'
+    get 'keys/destroy/:id'			=> 'keys#destroy'
 
 
 
